@@ -215,7 +215,7 @@ header.colour-test {
 }
 
 .other-text {
-  padding-right: 15%;
+  padding-right: 5%;
   padding-left: 5%;
 }
 
@@ -224,7 +224,7 @@ header.colour-test {
   flex-direction: row;
   align-items: center;
   gap: 2rem;
-  padding-left: 15%;
+  padding-left: 10%;
   padding-right: 15%;
   padding-bottom: 5%;
 }
@@ -382,7 +382,7 @@ nav-toggle:hover {
   flex-direction: row;
   align-items: center;
   gap: 2rem;
-  padding-left: 25%;
+  padding-left: 10%;
   padding-right: 5%;
   padding-bottom: 5%;
 }
