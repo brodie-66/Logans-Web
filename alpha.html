@@ -1,0 +1,345 @@
+<!Doctype HTML>
+<html>
+	 <link rel="stylesheet" href="alt3.css" />
+	<head>
+		<title> Murdoch Building and Construction </title>
+	
+	</head>
+
+	
+	<header class="colour-test">
+		
+		<img src="logo-land%20copy%202.png" alt="Floating Icon" class="floating-icon">
+
+		
+  <ul class="nav-bar">
+    <li><img class="img-logo" src="dead-hand.png" alt="Logo"></li>
+	  
+	  <button id="navToggle" class="nav-toggle" aria-label="Open navigation" >
+		  <img class="toggle-img" src="hamberger.png"> 
+<!--  <span class="bar"></span><span class="bar"></span><span class="bar"></span>-->
+</button>
+
+<ul class="nav-links">
+  <li><a class="nav-bar" href="#process-smart-scroll">Process</a></li>
+  <li><a class="nav-bar" href="#projects-smart-scroll">Projects</a></li>
+  <li><a class="nav-bar" href="#about-smart-scroll">About</a></li>
+  <li><a class="nav-bar" href="#smart-scroll-contact">Contact</a></li>
+</ul>
+
+  </ul>
+		
+		
+		
+		<script>
+  const header   = document.querySelector('.colour-test');
+  const links    = document.querySelector('.nav-links');
+  const toggle   = document.getElementById('navToggle');
+
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    header.classList.add('compact');
+    links.classList.remove('open'); // Always hide links when scrolling down
+  } else {
+    header.classList.remove('compact');
+    links.classList.remove('open'); // Also hide links when scrolling back up
+  }
+});
+
+  /* 2. Toggle links when the burger is clicked */
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('open');
+  });
+</script>
+</header>
+
+
+	
+	
+
+	
+<body class="section"> 
+	<div  class="mission-wrapper">
+  <img class="mission-img" src="landing.jpeg" alt="Mission Image">
+  <div class="mission-text">
+    <h2 class="heading-text-left">Mission Statement</h2>
+    <a class="body-text-left">Lorem ipsum dolor sit amet... simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</a>
+  </div>
+</div>
+
+
+<script>
+  window.addEventListener("scroll", function () {
+    const image = document.querySelector(".mission-img");
+    const text = document.querySelector(".mission-text");
+    const scrollTop = window.scrollY;
+    const maxScroll = 300;
+    const scale = Math.max(0.5, 1 - scrollTop / maxScroll);
+
+    image.style.transform = `scale(${scale})`;
+    image.style.transformOrigin = "center top";
+
+   
+    const naturalHeight = image.naturalHeight;
+    const scaledHeight = naturalHeight * scale;
+
+   
+    const marginTop = scaledHeight * 0.02;
+    text.style.marginTop = `${marginTop}px`;
+  });
+</script>
+
+	
+</body>
+	
+
+<section id="process-wrapper">
+  <div id="process-scroll" class="process-scroll">
+    <div class="process-pin">
+      <div class="process-track">
+		  
+		  	<article class="process-step">
+        <div class="step-img">
+        
+        </div>
+        <div  class="step-text">
+          <h2 class="the-black-hand">The Black Hand</h2>
+         
+        </div>
+      </article>
+		 
+		    <article class="process-step">
+        <div class="step-img">
+          <img id="process-smart-scroll"  class="scroll-img" src="step1.jpeg" alt="Step 1 image">
+        </div>
+        <div  class="step-text">
+          <h2>Step 1 — Planning </h2>
+          <p>Get Help</p>
+        </div>
+      </article>
+
+      
+      <article class="process-step">
+        <div class="step-img">
+          <img class="scroll-img" src="step2.jpeg" alt="Step 2 image">
+        </div>
+        <div class="step-text">
+          <h2>Step 2 — Design</h2>
+          <p>A short blurb about design…</p>
+        </div>
+      </article>
+
+      
+      <article class="process-step">
+        <div class="step-img">
+          <img class="scroll-img" src="step3.png" alt="Step 3 image">
+        </div>
+        <div class="step-text">
+          <h2>Step 3 — Build</h2>
+          <p>A short blurb about building…</p>
+        </div>
+      </article>
+
+      
+      <article class="process-step">
+        <div class="step-img">
+          <img class="scroll-img" src="step4.jpeg" alt="Step 4 image">
+        </div>
+        <div class="step-text">
+          <h2 >Step 4 — Handover</h2>
+			 <p>A short blurb about hand‑over…</p>
+        
+        </div>
+      </article>
+		  
+	<article class="process-step">
+        <div class="step-img">
+        
+        </div>
+        <div class="step-text">
+          <h2 class="the-black-hand">The Black Hand</h2>
+         
+        </div>
+      </article>
+        
+      </div>
+    </div>
+  </div>
+	<script>
+(function () {
+  const wrapper = document.getElementById("process-wrapper");
+  const section = document.getElementById("process-scroll");
+  const track = section.querySelector(".process-track");
+  const steps = track.children.length;
+  const stepHeight = window.innerHeight;
+  const scrollLength = stepHeight * (steps - 1); // Scroll space needed
+
+  // Create a spacer div to trap scroll
+  wrapper.style.height = scrollLength + window.innerHeight + "px";
+
+  window.addEventListener("scroll", () => {
+    const wrapperTop = wrapper.offsetTop;
+    const scrollTop = window.scrollY;
+
+    const progress = Math.min(Math.max(scrollTop - wrapperTop, 0), scrollLength);
+    const percentage = progress / scrollLength;
+
+    // Lock scroll effect — freeze rest of page
+    if (scrollTop >= wrapperTop && scrollTop <= wrapperTop + scrollLength) {
+      section.style.position = "fixed";
+      section.style.top = "0";
+      section.style.left = "0";
+      section.style.width = "100%";
+      section.style.height = "100vh";
+    } else {
+      section.style.position = "relative";
+    }
+
+    track.style.transform = `translateX(-${percentage * (steps - 1) * 100}vw)`;
+  });
+})();
+</script>
+
+</section>
+
+
+
+	
+
+
+
+
+	
+
+
+
+
+
+	<section class="section, mision-statement">
+		
+
+		
+	
+	</section>
+	<div class="black-hand-text" id="projects-smart-scroll"> black hand textLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.uer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et m</div> 
+	
+	<section> 
+		<h2 class="projects" > Projects</h2>
+	  <h3 class="projects" > we give a solid coverage for all your building needs</h3>
+
+
+		<h3 class="project-head"> Sheds; </h3>
+	  		<article class="img-right"> 
+			  	  <img class="project-img" src="sheds.jpeg"> 
+			   
+				<a class="other-text"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pel</a>
+				<a class="info-button" href="info.html"> <button>More info</button> </a>
+		
+		    </article>
+	<h3 class="project-head"> Houses; </h3>
+		<article class="img-right"> 
+		  <a class="other-text"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pel</a>
+		   <a class="info-button" href="info.html"> <button>More info</button> </a>.
+		  <img class="project-img" src="houses.jpeg"> 
+		</article>
+		
+		<h3 class="project-head"> Renovations; </h3>
+	  		<article class="img-right"> 
+			  	  <img class="project-img" src="renovations.jpeg"> 
+			   
+				<a class="other-text"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pel</a>
+				<a class="info-button" href="info.html"> <button>More info</button> </a>
+		
+		    </article>
+
+	     
+	
+	   <h3 class="project-head"> Other; </h3>
+		<article class="img-right"> 
+		  <a class="other-text"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pel</a>
+		   <a class="info-button" href="info.html"> <button>More info</button> </a>.
+		  <img class="project-img" src="other.jpeg"> 
+		</article>
+
+	
+	</section>
+	<section>
+		<h3 id="about-smart-scroll" class="about-head"> About Us; </h3>
+		<article class="img-right"> 
+			 <img class="project-img" src="renovations.jpeg"> 
+		  <a class="other-text"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pel</a>
+			
+			
+		</article>
+		
+		<h3 class="team-head"> Our Team; </h3>
+		<article class="img-right">
+					
+		  <img class="about-img" src="Don1.webp"> 
+		  <a class="other-text"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pel</a>
+		   
+		 
+		
+		</article>
+		
+		<article class="img-right-2">
+					
+		  <img class="about-img" src="Don1.webp"> 
+		  <a class="other-text"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pel</a>
+		   
+		 
+		
+		</article>
+		
+		<article class="img-right">
+					
+		  <img class="about-img" src="Don1.webp"> 
+		  <a class="other-text"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pel</a>
+		   
+		 
+		
+		</article>
+		
+
+
+	</section>
+	
+	
+
+ 
+	
+	
+	
+	
+	
+	
+	<footer class="footer"> 
+		<a class="footer, footer-cont"> Proudly sponsered by;  </a> 
+		
+				<article class="img-footer">
+					
+		  <img class="footer-img" src="Screenshot%202025-07-10%20at%205.33.32%E2%80%AFPM.png"> <img class="footer-img" src="Screenshot%202025-07-10%20at%205.33.32%E2%80%AFPM.png"> <img class="footer-img" src="Screenshot%202025-07-10%20at%205.33.32%E2%80%AFPM.png"> <img class="footer-img" src="Screenshot%202025-07-10%20at%205.33.32%E2%80%AFPM.png"> 
+		  
+		   
+		 
+		
+		</article>
+		
+<!--   -->
+		
+		<div id="smart-scroll-contact" class="contact">
+			<div class="footer-cont-element-alpha"> <a> Get in Touch; </a> </div>
+			<div class="footer-cont-element"> <a> murdochbuilding@office.com</a> </div>
+			<div class="footer-cont-element"> <a>034 679 0528 </a></div>
+			<div class="footer-cont-element"> <a>facebook </a></div>
+			<div class="footer-cont-element"> <a>instigram </a></div>
+
+		
+		</div>
+		
+		
+	
+	</footer>
+
+</html>
